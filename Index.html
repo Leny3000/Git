@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Définition de la police et de la taille de base */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    padding-top: 60px; /* Décale le contenu sous le header fixé */
+    background: linear-gradient(135deg, #f0f4f8, #12dada);
+}
+
+/* Styles pour le header */
+header {
+    background-color: #3097c0;
+    color: #ffffff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Styles pour la navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #17afa2;
+}
+
+/* Style du sous-menu déroulant */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(37, 17, 221, 0.9);
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Apparition douce du sous-menu au survol */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style des liens du sous-menu */
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #0163a5;
+    color: #000;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        display: none; /* Masquer le menu par défaut */
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+}
+
+/* Style des titres des compétences */
+.compétence-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Style des sous-menus */
+.sous-menu {
+    display: none; /* Masqué par défaut */
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.sous-menu li {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Effet au survol des sous-menus */
+.sous-menu li:hover {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+/* Affichage fluide du sous-menu au clic */
+.compétence .compétence-title {
+    transition: background 0.3s ease;
+}
+
+.compétence.active .sous-menu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+    </style>
+    <title>Menu déroulant</title>
+</head>
+<body>
+<nav id="navbar" class="navbar">
+    <ul>
+        <li>
+          <a class="nav-link scrollto active" href="#accueil">Accueil</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="#about">À propos</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto active" href="#contact">Contact</a>
+        </li>
+        <li class="dropdown">
+          <a class="nav-link scrollto" href="#anime">Anime</a>
+          <ul class="dropdown-menu">
+            <li><a href="#solo-leveling">Solo Leveling</a></li>
+            <li><a href="#blue-box">Blue box</a></li>
+            <li><a href="#mha">MHA</a></li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
